@@ -82,3 +82,25 @@ class Stack():
         """Is stack empty?"""
 
         return not bool(self._list)
+    def double_pop(self):
+        if self._list is not None:
+            double_pop_list = []
+            double_pop_list.append(self._list.pop())
+            double_pop_list.append(self._list.pop())
+            return double_pop_list
+
+def make_short_stack(list):
+    stk = Stack()
+    for item in list: 
+        stk.push(item)
+    
+    return stk
+
+
+stuff = ['free','tortillas','on','tuesday']
+
+staco = make_short_stack(stuff)
+staco_twosday = staco.double_pop()
+
+print(staco)
+print(staco_twosday)
