@@ -79,7 +79,32 @@ class LinkedList(object):
 
             else:     # haven't found yet, keep traversing
                 current = current.next
+    
+    def length(self):
+        counter = 0
+        if self.head is None:
+            return counter
+        current = self.head
+
+        while current is not None:
+            counter+=1
+            current = current.next
+        
+        return counter
+        
 
 
-# def word_shortener(list_of_words):
 
+def word_shortener(list_of_words):
+    ll = LinkedList()
+    for word in list_of_words[1:]:
+        ll.append(word)
+
+    return ll
+
+
+
+the_list = ['First','Second','Third','Fourth','Fifth', 'Sixth']
+
+one_word_short = word_shortener(the_list)
+print(one_word_short.length())
