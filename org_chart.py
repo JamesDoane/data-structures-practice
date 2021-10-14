@@ -1,4 +1,4 @@
-from printerqueue import Queue
+from queue import Queue
 
 class Node():
     """Node in a tree."""
@@ -50,26 +50,20 @@ class Tree():
         return self.root.find(data)
     
     def node_count(self):
-        q = Queue(self)
-        counter = 0
-        while q:
-            for i in q:
-                counter+=1
-                q.dequeue(i)
-
-        return counter
+        
+        pass
 
 
 
 
 def make_tree(ceo_name, direct_reports):
-    child = Node(direct_reports, None)
-    root = Node(ceo_name, direct_reports)
+    child = Node(direct_reports, [])
+    root = Node(ceo_name, [child])
     tree = Tree(root)
     return tree
 
 tree = make_tree("Bobby", ['Joe',"Mary", 'Sue'])
 
-print(tree.find_in_tree("Sue"))
+print(tree.root.children)
 
 # print(tree.node_count())
